@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "initializer_list": "cpp",
+        "streambuf": "cpp",
+        "xmemory0": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
     }
 }

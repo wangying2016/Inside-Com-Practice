@@ -98,7 +98,26 @@ public:
     // GUID
     const IID& iid() { return *piid; }
 
+    // CreateInstance
+    HRESULT CreateInstance(const CLSID& clsid, IUnknown* pI, DWORD clsctx)
+    {
+        Release();
+        return CoCreateInstance(clsid, pI, clsctx, *piid, (void**)&m_pI);
+    }
+
 private:
     // Pointer variable
     T* m_pI;
 };
+
+// Interface_cast
+template <class I, const GUID* pGUID>
+I* interface_cast(IUnknown* pIUnknown)
+{
+    I* pI = NULL;
+    HRESULT hr = pIUnknown->QueryInterface(*pGUID,
+                                           (void**)&pI);
+    assert(SUCCEEDED(hr));
+    return pI;                                        
+}
+
