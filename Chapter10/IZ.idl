@@ -1,0 +1,20 @@
+// Structure for interface IZ
+typedef struct
+{
+    double x;
+    double y;
+    double z;
+} Point3d;
+
+// Interface IZ
+[
+    object,
+    uuid(1B22EFA7-2274-4139-A31B-860A780A230A),
+    helpstring("IZ Interface"),
+    pointer _default(unique)
+]
+interface IZ : IUnknown
+{
+    HRESULT FzStructIn([in] Point3d pt);
+    HRESULT FzStructOut([out] Point3d* pt);
+};

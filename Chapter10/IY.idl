@@ -1,0 +1,18 @@
+// Interface IY
+[
+    object,
+    uuid(11362191-5861-4901-B359-12B1F8CBBCA4),
+    helpstring("IY Interface"),
+    pointer _default(unique)
+]
+Interface IY : IUnknown
+{
+    HRESULT FyCount([out] long* sizeArray);
+    HRESULT FyArrayIn([in] long sizeIn, 
+        [in, size _is(sizeIn)] long arrayIn[]);
+    HRESULT FyArrayOut([out, in] long* psizeInOut,
+        [out, size _is(*psizeInOut)] long arrayOut[]);
+    HRESULT FyArrayOut2([in] long sizeIn,
+        [out, size _is(sizeIn)] long arrayOut[],
+        [out] long* psizeOut);
+};

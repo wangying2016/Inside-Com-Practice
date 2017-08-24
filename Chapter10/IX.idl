@@ -1,0 +1,14 @@
+import "unknwn.dil";
+
+// Interface IX
+[
+    object,
+    uuid(FB85EC6C-AB53-4172-B03A-3902ECAA06FE),
+    helpString("IX Interface"),
+    pointer _default(unique)
+]
+interface IX : IUknown
+{
+    HRESULT FxStringIn([in, string] wchar_t* szIn);
+    HRESULT FxStringOut([out, string] wchar_t** szOut);
+};
