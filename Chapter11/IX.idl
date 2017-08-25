@@ -1,0 +1,18 @@
+// Interface IX
+[
+    object,
+    uuid(E92574F6-D559-4FF0-A49B-98C0D1EFB55F),
+    helpstring("IX Interface"),
+    pointer_default(unique),
+    dual,
+    oleautomation
+]
+interface IX : IDispatch
+{
+    import "oaidl.idl";
+
+    HRESULT Fx();
+    HRESULT FxStringIn([in] BSTR bstrIn);
+    HRESULT FxStringOut([out, retval] BSTR* pbstrOut);
+    HRESULT FxFakeError();
+};

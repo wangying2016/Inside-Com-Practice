@@ -1,0 +1,24 @@
+interface IDispatch : IUnknown
+{
+    HRESULT GetTypeInfoCount([out] UINT* pctinfo);
+
+    HRESULT GetTypeInfo([in] UINT iTInfo,
+        [in] LCID lcid,
+        [out] ITypeInfo** ppTInfo);
+    
+    HRESULT GetIDsOfNames(
+        [in] const IID& riid,
+        [in, size _is(cNames)] LPOLESTR* rgszNames,
+        [in] UINT cNames,
+        [in] LCID lcid,
+        [out, size _is(cNames)] DISPID* rgDispId);
+
+    HRESULT Invoke([in] DISPID dispIDMember,
+        [in] const IID& riid,
+        [in] LCID lcid,
+        [in] WORD wFlags,
+        [in, out] DISPPARAMS* pDispParams,
+        [out] VARIANT* pVarResult,
+        [out] EXCEPINFO* pExcepInfo,
+        [out] UINT* puArgErr);      
+};
